@@ -10,7 +10,7 @@
 #ifndef SETTINGS_H_
 #define SETTINGS_H_
 #include <stdint.h>
-#define SETTINGSVERSION (0x26)
+#define SETTINGSVERSION (0x2A)
 /*Change this if you change the struct below to prevent people getting \
           out of sync*/
 
@@ -29,6 +29,8 @@ typedef struct {
   uint8_t  QCIdealVoltage;      // Desired QC3.0 voltage (9,12,20V)
   uint8_t  OrientationMode : 2; // Selects between Auto,Right and left handed layouts
   uint8_t  sensitivity : 4;     // Sensitivity of accelerometer (5 bits)
+  uint8_t  animationLoop : 1;   // Animation loop switch
+  uint8_t  animationSpeed : 2;  // Animation speed (in miliseconds)
   uint8_t  autoStartMode : 2;   // Should the unit automatically jump straight
                                 // into soldering mode when power is applied
   uint8_t ShutdownTime;         // Time until unit shuts down if left alone
@@ -41,6 +43,8 @@ typedef struct {
   uint8_t descriptionScrollSpeed : 1; // Description scroll speed
   uint8_t lockingMode : 2;            // Store the locking mode
   uint8_t KeepAwakePulse;             // Keep Awake pulse power in 0.1 watts (10 = 1Watt)
+  uint8_t KeepAwakePulseWait;         // Time between Keep Awake pulses in 2500 ms = 2.5 s increments
+  uint8_t KeepAwakePulseDuration;     // Duration of the Keep Awake pusle in 250 ms increments
 
   uint16_t voltageDiv;        // Voltage divisor factor
   uint16_t BoostTemp;         // Boost mode set point for the iron
@@ -55,13 +59,20 @@ typedef struct {
   uint8_t  hallEffectSensitivity;          // Operating mode of the hall effect sensor
   uint8_t  accelMissingWarningCounter;     // Counter of how many times we have warned we cannot detect the accelerometer
   uint8_t  pdMissingWarningCounter;        // Counter of how many times we have warned we cannot detect the pd interface
+  char     uiLanguage[8];                  // Selected UI Language code, null-terminated *only if* the length is less than 8 chars
 
   uint32_t padding; // This is here for in case we are not an even divisor so
                     // that nothing gets cut off
                     // MUST BE LAST
 
 } systemSettingsType;
-
+typedef enum {
+  OFF       = 0, // Off (disabled)
+  SLOW      = 1, //
+  MEDIUM    = 2, //
+  FAST      = 3, //
+  MAX_VALUE = 4  //
+} settingOffSpeed_t;
 extern volatile systemSettingsType systemSettings;
 
 void     saveSettings();

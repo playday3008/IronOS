@@ -1,7 +1,10 @@
 {
 	"languageCode": "NL",
 	"languageLocalName": "Nederlands",
-	"cyrillicGlyphs": false,
+	"fonts": [
+		"ascii_basic",
+		"latin_extended"
+	],
 	"messages": {
 		"SettingsCalibrationDone": "Calibratie klaar!",
 		"SettingsCalibrationWarning": "Zorg ervoor dat te punt op kamertemperatuur is voor je verder gaat!",
@@ -21,14 +24,34 @@
 		"TipDisconnectedString": "PUNT LOSGEKOPPELT",
 		"SolderingAdvancedPowerPrompt": "Vermogen: ",
 		"OffString": "Uit",
+		"YourGainMessage": "Niveau:"
+	},
+	"messagesWarn": {
 		"ResetOKMessage": "Reset OK",
-		"YourGainMessage": "Niveau:",
-		"SettingsResetMessage": "Instellingen zijn\ngereset!",
-		"NoAccelerometerMessage": "No accelerometer\ndetected!",
-		"NoPowerDeliveryMessage": "No USB-PD IC\ndetected!",
-		"LockingKeysString": " GEBLOKKEERD",
-		"UnlockingKeysString": "GEDEBLOKKEERD",
-		"WarningKeysLockedString": "!GEBLOKKEERD!"
+		"SettingsResetMessage": [
+			"Instellingen",
+			"zijn gereset!"
+		],
+		"NoAccelerometerMessage": [
+			"No accelerometer",
+			"detected!"
+		],
+		"NoPowerDeliveryMessage": [
+			"No USB-PD IC",
+			"detected!"
+		],
+		"LockingKeysString": [
+			" GEBLOKKEERD",
+			""
+		],
+		"UnlockingKeysString": [
+			"GEDEBLOKKEERD",
+			""
+		],
+		"WarningKeysLockedString": [
+			"!GEBLOKKEERD!",
+			""
+		]
 	},
 	"characters": {
 		"SettingRightChar": "R",
@@ -36,6 +59,8 @@
 		"SettingAutoChar": "A",
 		"SettingFastChar": "F",
 		"SettingSlowChar": "S",
+		"SettingMediumChar": "M",
+		"SettingOffChar": "O",
 		"SettingStartSolderingChar": "T",
 		"SettingStartSleepChar": "S",
 		"SettingStartSleepOffChar": "O",
@@ -199,27 +224,6 @@
 			],
 			"desc": "Snelheid waarmee de tekst scrolt."
 		},
-		"TipModel": {
-			"text2": [
-				"Punt",
-				"Model"
-			],
-			"desc": "Punt Model selecteren"
-		},
-		"SimpleCalibrationMode": {
-			"text2": [
-				"Simpele",
-				"Calibratie"
-			],
-			"desc": "Simpele Calibratie met warm water"
-		},
-		"AdvancedCalibrationMode": {
-			"text2": [
-				"Geavanceerde",
-				"Calibratie"
-			],
-			"desc": "Geavanceerde calibratie met een thermokoppel op de punt"
-		},
 		"QCMaxVoltage": {
 			"text2": [
 				"Power",
@@ -262,13 +266,6 @@
 			],
 			"desc": "Vermogen van puls om soldeerbout aan te houden"
 		},
-		"TipGain": {
-			"text2": [
-				"Verander",
-				"punt gain"
-			],
-			"desc": "Punt gain"
-		},
 		"HallEffSensitivity": {
 			"text2": [
 				"Hall Eff",
@@ -288,7 +285,42 @@
 				"Minimum",
 				"voltage"
 			],
-			"desc": "Minimum allowed voltage per cell <Volts> <3S — 3.0V - 3.7V, 4/5/6S — 2.4V - 3.7V>"
+			"desc": "Minimum allowed voltage per cell <Volts> <3S: 3.0V - 3.7V, 4/5/6S: 2.4V - 3.7V>"
+		},
+		"AnimLoop": {
+			"text2": [
+				"Anim.",
+				"loop"
+			],
+			"desc": "Loop icon animations in root menu"
+		},
+		"AnimSpeed": {
+			"text2": [
+				"Anim.",
+				"speed"
+			],
+			"desc": "Speed of icon animations in menu <O=off | L=low | M=medium | H=high>"
+		},
+		"PowerPulseWait": {
+			"text2": [
+				"Power pulse",
+				"wait time"
+			],
+			"desc": "Time to wait before triggering every keep-awake pulse (x 2.5s)"
+		},
+		"PowerPulseDuration": {
+			"text2": [
+				"Power pulse",
+				"duration"
+			],
+			"desc": "Keep-awake-pulse duration (x 250ms)"
+		},
+		"LanguageSwitch": {
+			"text2": [
+				"Language:",
+				" NL  Nederlands"
+			],
+			"desc": ""
 		}
 	}
 }

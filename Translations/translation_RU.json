@@ -1,7 +1,11 @@
 {
 	"languageCode": "RU",
 	"languageLocalName": "Русский",
-	"cyrillicGlyphs": true,
+	"fonts": [
+		"ascii_basic",
+		"latin_extended",
+		"cyrillic"
+	],
 	"messages": {
 		"SettingsCalibrationDone": "Калибровка завершена!",
 		"SettingsCalibrationWarning": "Прежде чем продолжить, пожалуйста, убедитесь, что жало имеет комнатную температуру!",
@@ -21,11 +25,22 @@
 		"TipDisconnectedString": "ЖАЛО ОТСОЕДИНЕНО",
 		"SolderingAdvancedPowerPrompt": "Питание: ",
 		"OffString": "Выкл.",
+		"YourGainMessage": "Прирост:"
+	},
+	"messagesWarn": {
 		"ResetOKMessage": "Сброс OK",
-		"YourGainMessage": "Прирост:",
-		"SettingsResetMessage": "Настройки\nсброшены!",
-		"NoAccelerometerMessage": "Не определен\nакселерометр!",
-		"NoPowerDeliveryMessage": "No USB-PD IC\ndetected!",
+		"SettingsResetMessage": [
+			"Настройки",
+			"сброшены!"
+		],
+		"NoAccelerometerMessage": [
+			"Не определен",
+			"акселерометр!"
+		],
+		"NoPowerDeliveryMessage": [
+			"No USB-PD IC",
+			"detected!"
+		],
 		"LockingKeysString": " LOCKED",
 		"UnlockingKeysString": "UNLOCKED",
 		"WarningKeysLockedString": "!LOCKED!"
@@ -36,6 +51,8 @@
 		"SettingAutoChar": "А",
 		"SettingFastChar": "Б",
 		"SettingSlowChar": "М",
+		"SettingMediumChar": "M",
+		"SettingOffChar": "O",
 		"SettingStartSolderingChar": "П",
 		"SettingStartSleepChar": "О",
 		"SettingStartSleepOffChar": "К",
@@ -199,27 +216,6 @@
 			],
 			"desc": "Скорость прокрутки текста <М=медленно, Б=быстро>"
 		},
-		"TipModel": {
-			"text2": [
-				"Модель",
-				"жала"
-			],
-			"desc": "Выбор модели жала"
-		},
-		"SimpleCalibrationMode": {
-			"text2": [
-				"Упрощенная",
-				"калибровка"
-			],
-			"desc": "Упрощенная калибровка с использованием горячей воды"
-		},
-		"AdvancedCalibrationMode": {
-			"text2": [
-				"Улучшенная",
-				"калибровка"
-			],
-			"desc": "Улучшенная калибровка с импользованием термопары жала"
-		},
 		"QCMaxVoltage": {
 			"text2": [
 				"Мощность",
@@ -262,13 +258,6 @@
 			],
 			"desc": "Сила импульса удерживающего от сна повербанк или другой источник питания"
 		},
-		"TipGain": {
-			"text2": [
-				"Изменить",
-				"усиление жала"
-			],
-			"desc": "Усиление жала"
-		},
 		"HallEffSensitivity": {
 			"text2": [
 				"Эффект Холла",
@@ -288,7 +277,42 @@
 				"Мин.",
 				"напр."
 			],
-			"desc": "Минимальное разрешенное напряжение на ячейку <В вольтах> <3S — 3.0V - 3.7V, 4/5/6S — 2.4V - 3.7V>"
+			"desc": "Минимальное разрешенное напряжение на ячейку <В вольтах> <3S: 3.0V - 3.7V, 4/5/6S: 2.4V - 3.7V>"
+		},
+		"AnimLoop": {
+			"text2": [
+				"Зацикленная",
+				"анимация"
+			],
+			"desc": "Зацикленная анимация иконок в главном меню"
+		},
+		"AnimSpeed": {
+			"text2": [
+				"Скорость",
+				"анимации"
+			],
+			"desc": "Скорость анимации иконок в главном меню <Милисекунды> <О=Отключено, Н=Низкий, С=Средний, В=Высокий>"
+		},
+		"PowerPulseWait": {
+			"text2": [
+				"Power pulse",
+				"wait time"
+			],
+			"desc": "Time to wait before triggering every keep-awake pulse (x 2.5s)"
+		},
+		"PowerPulseDuration": {
+			"text2": [
+				"Power pulse",
+				"duration"
+			],
+			"desc": "Keep-awake-pulse duration (x 250ms)"
+		},
+		"LanguageSwitch": {
+			"text2": [
+				"Language:",
+				" RU     Русский"
+			],
+			"desc": ""
 		}
 	}
 }

@@ -11,9 +11,9 @@
 #include "Settings.h"
 #include "Translation.h"
 
-#define PRESS_ACCEL_STEP         30
-#define PRESS_ACCEL_INTERVAL_MIN 100
-#define PRESS_ACCEL_INTERVAL_MAX 300
+#define PRESS_ACCEL_STEP         (TICKS_100MS / 3)
+#define PRESS_ACCEL_INTERVAL_MIN TICKS_100MS
+#define PRESS_ACCEL_INTERVAL_MAX (TICKS_100MS * 3)
 
 // GUI holds the menu structure and all its methods for the menu itself
 
@@ -21,14 +21,17 @@
 
 // Struct for holding the function pointers and descriptions
 typedef struct {
-  const char *description;
+  // The settings description index, please use the `SETTINGS_DESC` macro with
+  // the `SettingsItemIndex` enum. Use 0 for no description.
+  uint8_t description;
   // return true if increment reached the maximum value
   bool (*const incrementHandler)(void);
-  void (*const draw)(void);
+  bool (*const draw)(void);
 } menuitem;
 
 void                  enterSettingsMenu();
 void                  GUIDelay();
+void                  warnUser(const char *warning, const int timeout);
 extern const menuitem rootSettingsMenu[];
 
 #endif /* GUI_HPP_ */

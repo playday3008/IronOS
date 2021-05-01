@@ -1,7 +1,10 @@
 {
 	"languageCode": "ES",
 	"languageLocalName": "Castellano",
-	"cyrillicGlyphs": false,
+	"fonts": [
+		"ascii_basic",
+		"latin_extended"
+	],
 	"messages": {
 		"SettingsCalibrationDone": "¡Calibrada!",
 		"SettingsCalibrationWarning": "¡Asegúrate que la punta esté a temperatura ambiente antes de empezar!",
@@ -21,14 +24,26 @@
 		"TipDisconnectedString": "NO HAY PUNTA",
 		"SolderingAdvancedPowerPrompt": "Potencia: ",
 		"OffString": " No",
-		"ResetOKMessage": "Hecho.       ",
 		"YourGainMessage": "Gananc.:",
-		"SettingsResetMessage": "Ajustes borrados",
-		"NoAccelerometerMessage": "No accelerometer\ndetected!",
-		"NoPowerDeliveryMessage": "No USB-PD IC\ndetected!",
-		"LockingKeysString": " LOCKED",
-		"UnlockingKeysString": "UNLOCKED",
-		"WarningKeysLockedString": "!LOCKED!"
+		"SettingsResetMessage": "Ajustes borrados"
+	},
+	"messagesWarn": {
+		"ResetOKMessage": "Hecho.",
+		"SettingsResetMessage": [
+			"Los ajustes fueron",
+			"¡Reinicio!"
+		],
+		"NoAccelerometerMessage": [
+			"Sin acelerómetro",
+			"¡Detectado!"
+		],
+		"NoPowerDeliveryMessage": [
+			"Sin USB-PD IC",
+			"¡Detectado!"
+		],
+		"LockingKeysString": " BLOQUEADO",
+		"UnlockingKeysString": "DESBLOQUEADO",
+		"WarningKeysLockedString": "¡BLOQUEADO!"
 	},
 	"characters": {
 		"SettingRightChar": "D",
@@ -36,6 +51,8 @@
 		"SettingAutoChar": "A",
 		"SettingFastChar": "R",
 		"SettingSlowChar": "L",
+		"SettingMediumChar": "M",
+		"SettingOffChar": "O",
 		"SettingStartSolderingChar": "S",
 		"SettingStartSleepChar": "R",
 		"SettingStartSleepOffChar": "F",
@@ -52,10 +69,10 @@
 	"menuGroups": {
 		"PowerMenu": {
 			"text2": [
-				"Power",
-				"settings"
+				"Potencia",
+				"ajustes"
 			],
-			"desc": "Power settings"
+			"desc": "Ajustes de potencia"
 		},
 		"SolderingMenu": {
 			"text2": [
@@ -199,27 +216,6 @@
 			],
 			"desc": "Velocidad de desplazamiento del texto <R=rápida L=lenta>"
 		},
-		"TipModel": {
-			"text2": [
-				"Modelo de",
-				"punta"
-			],
-			"desc": "Elegir el modelo de punta actual."
-		},
-		"SimpleCalibrationMode": {
-			"text2": [
-				"Calibración",
-				"simple"
-			],
-			"desc": "Calibración simple con agua caliente."
-		},
-		"AdvancedCalibrationMode": {
-			"text2": [
-				"Calibración",
-				"avanzada"
-			],
-			"desc": "Calibrar con un termopar en la punta; más difícil."
-		},
 		"QCMaxVoltage": {
 			"text2": [
 				"Potencia de",
@@ -262,33 +258,61 @@
 			],
 			"desc": "Aplica unos pulsos necesarios para mantener encendidas ciertas baterías portátiles. En vatios."
 		},
-		"TipGain": {
-			"text2": [
-				"Ajustar ganancia",
-				"de punta"
-			],
-			"desc": "Modificar el valor de ganancia de la punta."
-		},
 		"HallEffSensitivity": {
 			"text2": [
 				"Hall Eff",
-				"Sensitivity"
+				"Sensibilidad"
 			],
-			"desc": "Sensitivity of the Hall effect sensor in detecting sleep <O=Off,L=Low,M=Medium,H=High>"
+			"desc": "Sensibilidad del sensor de efecto Hall en la detección de reposo <O=Off,L=Low,M=Medium,H=High>"
 		},
 		"LockingMode": {
 			"text2": [
-				"Allow buttons",
-				"locking"
+				"Permitir botones",
+				"bloqueo"
 			],
-			"desc": "When soldering, long press on both buttons lock them <D=Disable, B=Boost only, F=Full locking>"
+			"desc": "Al soldar, una pulsación larga en ambos botones los bloquea <D=desactivar, B=sólo potenciar, F=bloqueo total>."
 		},
 		"MinVolCell": {
 			"text2": [
-				"Minimum",
-				"voltage"
+				"Mínimo",
+				"voltaje"
 			],
-			"desc": "Minimum allowed voltage per cell <Volts> <3S — 3.0V - 3.7V, 4/5/6S — 2.4V - 3.7V>"
+			"desc": "voltaje mínimo permitido por célula <Voltios> <3S: 3,0V - 3,7V, 4/5/6S: 2,4V - 3,7V>"
+		},
+		"AnimLoop": {
+			"text2": [
+				"Anim.",
+				"bucle"
+			],
+			"desc": "Animaciones de iconos en bucle en el menú raíz"
+		},
+		"AnimSpeed": {
+			"text2": [
+				"Anim.",
+				"velocidad"
+			],
+			"desc": "Velocidad de las animaciones de los iconos en el menú <O=off | L=low | M=medium | H=high>"
+		},
+		"PowerPulseWait": {
+			"text2": [
+				"Impulso de potencia",
+				"tiempo de espera"
+			],
+			"desc": "Tiempo de espera antes de disparar cada pulso de mantenimiento de la vigilia (x 2,5s)"
+		},
+		"PowerPulseDuration": {
+			"text2": [
+				"Impulso de potencia",
+				"duración"
+			],
+			"desc": "Duración del impulso de mantenimiento de la vigilia (x 250ms)"
+		},
+		"LanguageSwitch": {
+			"text2": [
+				"Language:",
+				" ES  Castellano"
+			],
+			"desc": ""
 		}
 	}
 }

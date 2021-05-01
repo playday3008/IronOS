@@ -8,64 +8,9 @@
 #ifndef TRANSLATION_H_
 #define TRANSLATION_H_
 #include "stdint.h"
-extern const uint8_t USER_FONT_12[];
-extern const uint8_t USER_FONT_6x8[];
-extern const bool    HasFahrenheit;
 
-extern const char *SettingsShortNames[29][2];
-extern const char *SettingsDescriptions[29];
-extern const char *SettingsMenuEntries[5];
+extern const bool HasFahrenheit;
 
-extern const char *SettingsCalibrationDone;
-extern const char *SettingsCalibrationWarning;
-extern const char *SettingsResetWarning;
-extern const char *UVLOWarningString;
-extern const char *UndervoltageString;
-extern const char *InputVoltageString;
-extern const char *WarningTipTempString;
-extern const char *BadTipString;
-
-extern const char *SleepingSimpleString;
-extern const char *SleepingAdvancedString;
-extern const char *WarningSimpleString;
-extern const char *WarningAdvancedString;
-extern const char *SleepingTipAdvancedString;
-extern const char *IdleTipString;
-extern const char *IdleSetString;
-extern const char *TipDisconnectedString;
-extern const char *SolderingAdvancedPowerPrompt;
-extern const char *OffString;
-extern const char *ResetOKMessage;
-extern const char *YourGainMessage;
-extern const char *SettingsResetMessage;
-extern const char *NoAccelerometerMessage;
-extern const char *NoPowerDeliveryMessage;
-extern const char *LockingKeysString;
-extern const char *UnlockingKeysString;
-extern const char *WarningKeysLockedString;
-
-extern const char *SettingTrueChar;
-extern const char *SettingFalseChar;
-extern const char *SettingRightChar;
-extern const char *SettingLeftChar;
-extern const char *SettingAutoChar;
-extern const char *SettingStartSolderingChar;
-extern const char *SettingStartSleepChar;
-extern const char *SettingStartSleepOffChar;
-extern const char *SettingStartNoneChar;
-extern const char *SettingSensitivityOff;
-extern const char *SettingSensitivityLow;
-extern const char *SettingSensitivityMedium;
-extern const char *SettingSensitivityHigh;
-extern const char *SettingLockDisableChar;
-extern const char *SettingLockBoostChar;
-extern const char *SettingLockFullChar;
-extern const char *SettingNAChar;
-
-extern const char *SettingFastChar;
-extern const char *SettingSlowChar;
-extern const char *TipModelStrings[];
-extern const char *DebugMenu[];
 extern const char *SymbolPlus;
 extern const char *SymbolMinus;
 extern const char *SymbolSpace;
@@ -81,4 +26,122 @@ extern const char *SymbolCellCount;
 extern const char *SymbolVersionNumber;
 
 extern const char *DebugMenu[];
+
+enum class SettingsItemIndex : uint8_t {
+  DCInCutoff,
+  SleepTemperature,
+  SleepTimeout,
+  ShutdownTimeout,
+  MotionSensitivity,
+  TemperatureUnit,
+  AdvancedIdle,
+  DisplayRotation,
+  BoostTemperature,
+  AutoStart,
+  CooldownBlink,
+  TemperatureCalibration,
+  SettingsReset,
+  VoltageCalibration,
+  AdvancedSoldering,
+  ScrollingSpeed,
+  QCMaxVoltage,
+  PowerLimit,
+  ReverseButtonTempChange,
+  TempChangeShortStep,
+  TempChangeLongStep,
+  PowerPulsePower,
+  HallEffSensitivity,
+  LockingMode,
+  MinVolCell,
+  AnimLoop,
+  AnimSpeed,
+  PowerPulseWait,
+  PowerPulseDuration,
+  LanguageSwitch,
+  NUM_ITEMS,
+};
+
+struct TranslationIndexTable {
+  uint16_t SettingsCalibrationWarning;
+  uint16_t SettingsResetWarning;
+  uint16_t UVLOWarningString;
+  uint16_t UndervoltageString;
+  uint16_t InputVoltageString;
+
+  uint16_t SleepingSimpleString;
+  uint16_t SleepingAdvancedString;
+  uint16_t SleepingTipAdvancedString;
+  uint16_t IdleTipString;
+  uint16_t IdleSetString;
+  uint16_t TipDisconnectedString;
+  uint16_t SolderingAdvancedPowerPrompt;
+  uint16_t OffString;
+
+  uint16_t ResetOKMessage;
+  uint16_t SettingsResetMessage;
+  uint16_t NoAccelerometerMessage;
+  uint16_t NoPowerDeliveryMessage;
+  uint16_t LockingKeysString;
+  uint16_t UnlockingKeysString;
+  uint16_t WarningKeysLockedString;
+
+  uint16_t SettingRightChar;
+  uint16_t SettingLeftChar;
+  uint16_t SettingAutoChar;
+  uint16_t SettingFastChar;
+  uint16_t SettingSlowChar;
+  uint16_t SettingMediumChar;
+  uint16_t SettingOffChar;
+  uint16_t SettingStartSolderingChar;
+  uint16_t SettingStartSleepChar;
+  uint16_t SettingStartSleepOffChar;
+  uint16_t SettingStartNoneChar;
+  uint16_t SettingSensitivityOff;
+  uint16_t SettingSensitivityLow;
+  uint16_t SettingSensitivityMedium;
+  uint16_t SettingSensitivityHigh;
+  uint16_t SettingLockDisableChar;
+  uint16_t SettingLockBoostChar;
+  uint16_t SettingLockFullChar;
+  uint16_t SettingNAChar;
+
+  uint16_t SettingsDescriptions[static_cast<uint32_t>(SettingsItemIndex::NUM_ITEMS)];
+  uint16_t SettingsShortNames[static_cast<uint32_t>(SettingsItemIndex::NUM_ITEMS)];
+  uint16_t SettingsMenuEntries[5];
+  uint16_t SettingsMenuEntriesDescriptions[5]; // unused
+};
+
+extern const TranslationIndexTable *Tr;
+extern const char *                 TranslationStrings;
+
+struct TranslationData {
+  TranslationIndexTable indices;
+  // Translation strings follows the translation index table.
+  // C++ does not support flexible array member as in C, so we use a 1-element
+  // array as a placeholder.
+  char strings[1];
+};
+
+struct FontSection {
+  /// Start index of font section, inclusive
+  uint16_t symbol_start;
+  /// End index of font section, exclusive
+  uint16_t       symbol_end;
+  const uint8_t *font12_start_ptr;
+  const uint8_t *font06_start_ptr;
+};
+
+extern const FontSection *const FontSections;
+extern const uint8_t            FontSectionsCount;
+
+constexpr uint8_t settings_item_index(const SettingsItemIndex i) { return static_cast<uint8_t>(i); }
+// Use a constexpr function for type-checking.
+#define SETTINGS_DESC(i) (settings_item_index(i) + 1)
+
+const char *translatedString(uint16_t index);
+
+void prepareTranslations();
+bool settings_displayLanguageSwitch(void);
+bool settings_setLanguageSwitch(void);
+
 #endif /* TRANSLATION_H_ */

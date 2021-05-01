@@ -2,9 +2,6 @@ var def =
 {
 	"messages": [
 		{
-			"id": "SettingsCalibrationDone"
-		},
-		{
 			"id": "SettingsCalibrationWarning"
 		},
 		{
@@ -24,28 +21,11 @@ var def =
 			"note": "Preferably end with a space"
 		},
 		{
-			"id": "WarningTipTempString",
-			"maxLen": 12,
-			"note": "Preferably end with a space"
-		},
-		{
-			"id": "BadTipString",
-			"maxLen": 8
-		},
-		{
 			"id": "SleepingSimpleString",
 			"maxLen": 4
 		},
 		{
 			"id": "SleepingAdvancedString",
-			"maxLen": 16
-		},
-		{
-			"id": "WarningSimpleString",
-			"maxLen": 4
-		},
-		{
-			"id": "WarningAdvancedString",
 			"maxLen": 16
 		},
 		{
@@ -80,45 +60,29 @@ var def =
 		{
 			"id": "OffString",
 			"maxLen": 3
+		}
+	],
+	"messagesWarn": [
+		{
+			"id": "ResetOKMessage"
 		},
 		{
-			"id": "ResetOKMessage",
-			"maxLen": 8
+			"id": "SettingsResetMessage"
 		},
 		{
-			"id": "YourGainMessage",
-			"maxLen": 8,
-			"default": "Your Gain"
+			"id": "NoAccelerometerMessage"
 		},
 		{
-			"id": "SettingsResetMessage",
-			"maxLen": 16,
-			"default": "Settings were\nreset!"
+			"id": "NoPowerDeliveryMessage"
 		},
 		{
-			"id": "NoAccelerometerMessage",
-			"maxLen": 16,
-			"default": "No accelerometer\ndetected!"
+			"id": "LockingKeysString"
 		},
 		{
-			"id": "NoPowerDeliveryMessage",
-			"maxLen": 16,
-			"default": "No USB-PD IC\ndetected!"
+			"id": "UnlockingKeysString"
 		},
 		{
-			"id": "LockingKeysString",
-			"maxLen": 8,
-			"default": "LOCKING"
-		},
-		{
-			"id": "UnlockingKeysString",
-			"maxLen": 8,
-			"default": "UNLOCK"
-		},
-		{
-			"id": "WarningKeysLockedString",
-			"maxLen": 8,
-			"default": "LOCKED!"
+			"id": "WarningKeysLockedString"
 		}
 	],
 	"characters": [
@@ -140,6 +104,14 @@ var def =
 		},
 		{
 			"id": "SettingSlowChar",
+			"len": 1
+		},
+		{
+			"id": "SettingMediumChar",
+			"len": 1
+		},
+		{
+			"id": "SettingOffChar",
 			"len": 1
 		},
 		{
@@ -198,23 +170,28 @@ var def =
 	"menuGroups": [
 		{
 			"id": "PowerMenu",
-			"maxLen": 11
+			"maxLen": 5,
+			"maxLen2": 11
 		},
 		{
 			"id": "SolderingMenu",
-			"maxLen": 11
+			"maxLen": 5,
+			"maxLen2": 11
 		},
 		{
 			"id": "PowerSavingMenu",
-			"maxLen": 11
+			"maxLen": 5,
+			"maxLen2": 11
 		},
 		{
 			"id": "UIMenu",
-			"maxLen": 11
+			"maxLen": 5,
+			"maxLen2": 11
 		},
 		{
 			"id": "AdvancedMenu",
-			"maxLen": 11
+			"maxLen": 5,
+			"maxLen2": 11
 		}
 	],
 	"menuOptions": [
@@ -299,21 +276,6 @@ var def =
 			"maxLen2": 11
 		},
 		{
-			"id": "TipModel",
-			"maxLen": 8,
-			"maxLen2": 16
-		},
-		{
-			"id": "SimpleCalibrationMode",
-			"maxLen": 8,
-			"maxLen2": 16
-		},
-		{
-			"id": "AdvancedCalibrationMode",
-			"maxLen": 8,
-			"maxLen2": 16
-		},
-		{
 			"id": "QCMaxVoltage",
 			"maxLen": 8,
 			"maxLen2": 16
@@ -344,11 +306,6 @@ var def =
 			"maxLen2": 16
 		},
 		{
-			"id": "TipGain",
-			"maxLen": 6,
-			"maxLen2": 8
-		},
-		{
 			"id": "HallEffSensitivity",
 			"maxLen": 6,
 			"maxLen2": 8
@@ -362,6 +319,31 @@ var def =
 			"id": "MinVolCell",
 			"maxLen": 4,
 			"maxLen2": 9
+		},
+		{
+			"id": "AnimLoop",
+			"maxLen": 6,
+			"maxLen2": 13
+		},
+		{
+			"id": "AnimSpeed",
+			"maxLen": 6,
+			"maxLen2": 13
+		},
+		{
+			"id": "PowerPulseWait",
+			"maxLen": 6,
+			"maxLen2": 13
+		},
+		{
+			"id": "PowerPulseDuration",
+			"maxLen": 6,
+			"maxLen2": 13
+		},
+		{
+			"id": "LanguageSwitch",
+			"maxLen": 7,
+			"maxLen2": 15
 		}
 	]
 }
